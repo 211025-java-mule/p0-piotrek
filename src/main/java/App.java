@@ -10,7 +10,6 @@ public class App {
 
         URL url = new URL("https://rickandmortyapi.com/api/character/" + choice);
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-        connection.setRequestProperty("Accept", "application/json");
         InputStream response = connection.getInputStream();
         String body = new String(response.readAllBytes());
         System.out.println(body);
