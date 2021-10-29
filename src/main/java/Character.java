@@ -5,7 +5,6 @@ import lombok.ToString;
 import java.net.URL;
 import java.util.List;
 
-
 @Getter
 @Setter
 @ToString
