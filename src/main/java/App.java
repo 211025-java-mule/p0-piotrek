@@ -11,13 +11,13 @@ import java.sql.*;
 @Slf4j
 public class App {
     public static void main(String[] args) {
-        String choice = args[0];
-        ApiConnection connection = new ApiConnection();
+        String choice = "5";
+        ApiConnection apiConnection = new ApiConnection();
         UI ui = new UI();
         ObjectMapper objectMapper = new ObjectMapper();
         DB db = new DB();
 
-        String body = connection.getBody(choice);
+        String body = apiConnection.getBody(choice);
         Character character = ui.getCharacter(objectMapper, body);
         System.out.println(character);
 
