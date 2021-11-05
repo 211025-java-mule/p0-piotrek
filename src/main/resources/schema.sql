@@ -1,5 +1,5 @@
 create table if not exists character(
-id int NOT NULL AUTO_INCREMENT,
+id SERIAL PRIMARY KEY,
 name varchar(255),
 status varchar(255),
 species varchar(255),

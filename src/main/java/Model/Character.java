@@ -19,8 +19,8 @@ public class Character {
     private String species;
     private String type;
     private String gender;
-    private RMobject origin;
-    private RMobject location;
+    private RmObject origin;
+    private RmObject location;
     private String image;
     private List<URL> episode;
     private String url;

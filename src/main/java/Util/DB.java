@@ -2,17 +2,18 @@ package Util;
 
 import Model.Character;
 import lombok.extern.slf4j.Slf4j;
+import tech.tablesaw.api.Table;
 
 import java.sql.*;
 
 @Slf4j
 public class DB {
 
-    public void saveToDB(Character character) {
-        try (Connection conn = DriverManager.getConnection("jdbc:h2:mem:test;INIT=runscript from 'classpath:schema.sql'", "sa", "");) {
-            System.out.println("Connection made");
-            String INSERT_INTO_CHARACTER = "insert into character(name, status, species, type, gender, origin, location, image, episode, url, created)  values (?, ? , ? , ? , ? , ? , ? ,? ,? ,? ,?);";
 
+    public void saveCharacterToDB(Character character) {
+        try {
+            Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "password");
+            String INSERT_INTO_CHARACTER = "insert into character(name, status, species, type, gender, origin, location, image, episode, url, created)  values (?, ? , ? , ? , ? , ? , ? ,? ,? ,? ,?);";
 
             PreparedStatement ps = conn.prepareStatement(INSERT_INTO_CHARACTER);
             ps.setString(1, character.getName());
@@ -27,17 +28,13 @@ public class DB {
             ps.setString(10, character.getUrl());
             ps.setString(11, character.getCreated());
             ps.executeUpdate();
-            System.out.println("character added");
             Statement statement = conn.createStatement();
             ResultSet resultSet = statement.executeQuery("select * from character");
 
-            while (resultSet.next()) {
-                System.out.println("SQL DB: " + resultSet.getString("status"));
-            }
-
+            System.out.println(Table.read().db(resultSet).print());
 
         } catch (SQLException e) {
-            log.error("SQL exeption"); // ???
+            log.error("SQL exeption");
         }
     }
 }

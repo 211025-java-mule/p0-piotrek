@@ -6,23 +6,40 @@ import Util.UI;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 
-import java.sql.*;
+import java.util.Scanner;
 
 @Slf4j
 public class App {
     public static void main(String[] args) {
-        String choice = "5";
         ApiConnection apiConnection = new ApiConnection();
         UI ui = new UI();
         ObjectMapper objectMapper = new ObjectMapper();
         DB db = new DB();
 
-        String body = apiConnection.getBody(choice);
-        Character character = ui.getCharacter(objectMapper, body);
-        System.out.println(character);
+        while (true) {
+            System.out.println("Welcome to Rick & Morty App! Please pick number from 1 to 826 to retrieve information about Rick & Morty character! ");
+            Scanner scanner = new Scanner(System.in);
+            if (!(scanner.hasNextInt())) {
+                System.out.println("Please input an integer");
+            } else {
 
-        //DB
-        db.saveToDB(character);
+            int usersChoice = scanner.nextInt();
+
+            if (usersChoice == 0) {
+                System.out.println("Bye bye!");
+                System.exit(0);
+            }
+            String body = apiConnection.getBody(usersChoice);
+            Character character = ui.getCharacter(objectMapper, body);
+
+            //DB
+            db.saveCharacterToDB(character);
+        }
+    }
 
     }
+
+
 }
+
+

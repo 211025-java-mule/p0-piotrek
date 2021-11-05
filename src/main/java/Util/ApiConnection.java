@@ -10,7 +10,7 @@ import java.net.URL;
 @Slf4j
 public class ApiConnection {
 
-    public String getBody(String choice) {
+    public String getBody(int choice) {
         URL url = null;
         try {
             url = new URL("https://rickandmortyapi.com/api/character/" + choice);

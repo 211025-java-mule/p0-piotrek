@@ -7,7 +7,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class RMobject {
+public class RmObject {
     private String name;
     private String url;
 
