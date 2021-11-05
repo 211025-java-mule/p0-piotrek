@@ -1,7 +1,7 @@
 
 import Model.Character;
 import Util.ApiConnection;
-import Util.DB;
+import Util.DataBase;
 import Util.UI;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
@@ -14,7 +14,7 @@ public class App {
         ApiConnection apiConnection = new ApiConnection();
         UI ui = new UI();
         ObjectMapper objectMapper = new ObjectMapper();
-        DB db = new DB();
+        DataBase dataBase = new DataBase();
 
         while (true) {
             System.out.println("Welcome to Rick & Morty App! Please pick number from 1 to 826 to retrieve information about Rick & Morty character! ");
@@ -33,7 +33,7 @@ public class App {
             Character character = ui.getCharacter(objectMapper, body);
 
             //DB
-            db.saveCharacterToDB(character);
+            dataBase.saveCharacterToDB(character);
         }
     }
 

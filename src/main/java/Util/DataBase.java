@@ -7,12 +7,12 @@ import tech.tablesaw.api.Table;
 import java.sql.*;
 
 @Slf4j
-public class DB {
+public class DataBase {
 
 
     public void saveCharacterToDB(Character character) {
-        try {
-            Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "password");
+        try(Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "password")) {
+
             String INSERT_INTO_CHARACTER = "insert into character(name, status, species, type, gender, origin, location, image, episode, url, created)  values (?, ? , ? , ? , ? , ? , ? ,? ,? ,? ,?);";
 
             PreparedStatement ps = conn.prepareStatement(INSERT_INTO_CHARACTER);
