@@ -9,7 +9,7 @@
         <maven.compiler.source>16</maven.compiler.source>
         <maven.compiler.target>16</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <exec.mainClass>App</exec.mainClass>
+        <exec.mainClass>com.revature.boczar.rickAndMorty.RickAndMorty</exec.mainClass>
 <!--        <exec.args>10</exec.args>-->
     </properties>
 
@@ -41,11 +41,11 @@
             <version>1.7.32</version>
             <scope>compile</scope>
         </dependency>
-<!--       <dependency>-->
-<!--			<groupId>com.h2database</groupId>-->
-<!--			<artifactId>h2</artifactId>-->
-<!--			<version>1.4.200</version>-->
-<!--		</dependency>-->
+       <dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<version>1.4.200</version>
+		</dependency>
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
@@ -56,7 +56,6 @@
             <artifactId>tablesaw-core</artifactId>
             <version>0.42.0</version>
         </dependency>
-
     </dependencies>
 
     <build>
@@ -73,7 +72,7 @@
                             <archive>
                                 <manifest>
                                     <addClasspath>true</addClasspath>
-                                    <mainClass>App</mainClass>
+                                    <mainClass>com.revature.boczar.rickAndMorty.RickAndMorty</mainClass>
                                 </manifest>
                             </archive>
                             <descriptorRefs>

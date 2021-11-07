@@ -1,6 +1,6 @@
-package Util;
+package com.revature.boczar.rickAndMorty.Util;
 
-import Model.Character;
+import com.revature.boczar.rickAndMorty.Model.Character;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;

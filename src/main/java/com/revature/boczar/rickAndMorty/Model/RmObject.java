@@ -1,4 +1,4 @@
-package Model;
+package com.revature.boczar.rickAndMorty.Model;
 
 import lombok.Getter;
 import lombok.Setter;

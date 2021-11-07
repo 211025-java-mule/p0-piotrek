@@ -1,6 +1,6 @@
-package Util;
+package com.revature.boczar.rickAndMorty.Util;
 
-import Model.Character;
+import com.revature.boczar.rickAndMorty.Model.Character;
 import lombok.extern.slf4j.Slf4j;
 import tech.tablesaw.api.Table;
 
@@ -34,7 +34,8 @@ public class DataBase {
             System.out.println(Table.read().db(resultSet).print());
 
         } catch (SQLException e) {
-            log.error("SQL exeption");
+            e.printStackTrace();
+            log.error("SQL exeption"); //?
         }
     }
 }

@@ -1,15 +1,16 @@
+package com.revature.boczar.rickAndMorty;
 
-import Model.Character;
-import Util.ApiConnection;
-import Util.DataBase;
-import Util.UI;
+import com.revature.boczar.rickAndMorty.Model.Character;
+import com.revature.boczar.rickAndMorty.Util.ApiConnection;
+import com.revature.boczar.rickAndMorty.Util.DataBase;
+import com.revature.boczar.rickAndMorty.Util.UI;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.Scanner;
 
 @Slf4j
-public class App {
+public class RickAndMorty {
     public static void main(String[] args) {
         ApiConnection apiConnection = new ApiConnection();
         UI ui = new UI();
@@ -17,7 +18,7 @@ public class App {
         DataBase dataBase = new DataBase();
 
         while (true) {
-            System.out.println("Welcome to Rick & Morty App! Please pick number from 1 to 826 to retrieve information about Rick & Morty character! ");
+            System.out.println("Welcome to Rick & Morty com.revature.boczar.rickAndMorty.App! Please pick number from 1 to 826 to retrieve information about Rick & Morty character! ");
             Scanner scanner = new Scanner(System.in);
             if (!(scanner.hasNextInt())) {
                 System.out.println("Please input an integer");
