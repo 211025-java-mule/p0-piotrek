@@ -8,7 +8,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 @Slf4j
-public class ApiConnection {
+public class CharacterService {
 
     public String getBody(int choice) {
         URL url = null;

@@ -6,7 +6,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-public class UI {
+public class UserInterface {
 
     public Character getCharacter(ObjectMapper objectMapper, String body) {
         Character character = null;

@@ -7,7 +7,7 @@ import tech.tablesaw.api.Table;
 import java.sql.*;
 
 @Slf4j
-public class DataBase {
+public class CharacterPostgresRepository {
 
 
     public void saveCharacterToDB(Character character) {
@@ -28,14 +28,25 @@ public class DataBase {
             ps.setString(10, character.getUrl());
             ps.setString(11, character.getCreated());
             ps.executeUpdate();
-            Statement statement = conn.createStatement();
-            ResultSet resultSet = statement.executeQuery("select * from character");
 
-            System.out.println(Table.read().db(resultSet).print());
 
         } catch (SQLException e) {
             e.printStackTrace();
             log.error("SQL exeption"); //?
+        }
+    }
+    public void printAllCharacters(){
+
+        try(Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "password")){
+            String GET_ALL_CHARACTERS = "select * from character";
+            Statement statement = conn.createStatement();
+
+            ResultSet resultSet = statement.executeQuery(GET_ALL_CHARACTERS);
+
+            System.out.println(Table.read().db(resultSet).print());
+
+        } catch (SQLException e){
+            log.error("SQL exeption");
         }
     }
 }
