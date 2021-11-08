@@ -11,7 +11,7 @@ API URL:
 
 
 <h3>Features</h3>
-- Shows information about character you picked. There are 826 to pick from!
+- Shows information about favorite character from Rick and Morty. There are 826 to pick from!
 - Instantly adds it to Postgre database
 
 <h3>Running</h3>
@@ -19,6 +19,10 @@ Setup DB
 
 >docker run --name boczar -it --rm -p 5432:5432 -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=password -v C:/Users/Piortek/IdeaProjects/p0-piotrek/src/main/resources/schema.sql:/docker-entrypoint-initdb.d/schema.sql postgres
 
-Debug
+<h3>Debug</h3>
 
 >mvn exec:java
+
+<h3>Author</h3>
+
+Piotr Boczar
