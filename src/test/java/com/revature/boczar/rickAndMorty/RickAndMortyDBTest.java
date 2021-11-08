@@ -4,17 +4,22 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
-
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.sql.*;
 
-public class RickAndMortyTest {
-    static Connection connection = null;
+import static org.junit.Assert.assertEquals;
+
+
+public class RickAndMortyDBTest {
+    static Connection connection;
 
     @Before
     public void setUpConnection() {
         try {
-            connection = DriverManager.getConnection("jdbc:h2:mem:test;INIT=runscript from 'classpath:schema.sql';MODE=PostgreSQL;DATABASE_TO_LOWER=TRUE", "sa", "");
+            connection = DriverManager.getConnection("jdbc:h2:mem:test;INIT=runscript from 'classpath:schema.sql'", "sa", "");
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -45,4 +50,19 @@ public class RickAndMortyTest {
         }
     }
 
+    @Test
+    public void testConnectionToAPI() throws IOException {
+        URL url = new URL("https://rickandmortyapi.com/api/character/");
+        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+        Assert.assertNotEquals(null, connection);
+    }
+
+    @Test
+    public void testResponseFromAPI() throws IOException {
+        URL url = new URL("https://rickandmortyapi.com/api/character/");
+        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+        InputStream response = connection.getInputStream();
+        String body = new String(response.readAllBytes());
+        Assert.assertNotEquals(null, body);
+    }
 }

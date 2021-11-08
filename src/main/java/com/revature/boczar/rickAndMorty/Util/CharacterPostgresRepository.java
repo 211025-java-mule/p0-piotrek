@@ -29,10 +29,9 @@ public class CharacterPostgresRepository {
             ps.setString(11, character.getCreated());
             ps.executeUpdate();
 
-
         } catch (SQLException e) {
             e.printStackTrace();
-            log.error("SQL exeption"); //?
+            log.error("SQL exeption");
         }
     }
     public void printAllCharacters(){
@@ -46,7 +45,7 @@ public class CharacterPostgresRepository {
             System.out.println(Table.read().db(resultSet).print());
 
         } catch (SQLException e){
-            log.error("SQL exeption");
+            log.error("SQL exception");
         }
     }
 }

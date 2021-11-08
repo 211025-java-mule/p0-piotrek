@@ -8,7 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class UserInterface {
 
-    public Character getCharacter(ObjectMapper objectMapper, String body) {
+    public Character getCharacterFromJson(ObjectMapper objectMapper, String body) {
         Character character = null;
         try {
             character = objectMapper.readValue(body, Character.class);

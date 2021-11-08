@@ -31,9 +31,8 @@ public class RickAndMorty {
                     System.exit(0);
                 }
                 String body = characterService.getBody(usersChoice);
-                Character character = userInterface.getCharacter(objectMapper, body);
+                Character character = userInterface.getCharacterFromJson(objectMapper, body);
 
-                //DB
                 characterPostgresRepository.saveCharacterToDB(character);
                 characterPostgresRepository.printAllCharacters();
             }
