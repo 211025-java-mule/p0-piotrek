@@ -37,7 +37,8 @@ public class CharacterPostgresRepository {
             ps.executeUpdate();
 
         } catch (SQLException e) {
-            e.printStackTrace(); // ???
+            System.err.println(e.getMessage()); //?
+            //System.out.println(e.getMessage());
             log.error(e.getMessage());
         }
     }
