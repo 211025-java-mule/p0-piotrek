@@ -9,7 +9,11 @@ import java.net.MalformedURLException;
 import java.net.URL;
 @Slf4j
 public class CharacterService {
-
+    /**
+     * This method is getting Json from external URL to String object.
+     * @param choice Method accept int choice and by this id search in API.
+     * @return Method returns String in Json format.
+     */
     public String getBody(int choice) {
         URL url = null;
         try {

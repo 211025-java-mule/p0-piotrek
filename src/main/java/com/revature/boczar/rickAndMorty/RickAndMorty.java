@@ -1,16 +1,18 @@
 package com.revature.boczar.rickAndMorty;
 
-import com.revature.boczar.rickAndMorty.Model.Character;
-import com.revature.boczar.rickAndMorty.Util.CharacterService;
-import com.revature.boczar.rickAndMorty.Util.CharacterPostgresRepository;
-import com.revature.boczar.rickAndMorty.Util.UserInterface;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.revature.boczar.rickAndMorty.Model.Character;
+import com.revature.boczar.rickAndMorty.Util.CharacterPostgresRepository;
+import com.revature.boczar.rickAndMorty.Util.CharacterService;
+import com.revature.boczar.rickAndMorty.Util.UserInterface;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.Scanner;
 
 @Slf4j
 public class RickAndMorty {
+
+
     public static void main(String[] args) {
         CharacterService characterService = new CharacterService();
         UserInterface userInterface = new UserInterface();

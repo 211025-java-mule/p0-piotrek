@@ -10,6 +10,5 @@ import lombok.ToString;
 public class RmObject {
     private String name;
     private String url;
-
 }
 

@@ -12,7 +12,6 @@ import java.util.List;
 @ToString
 
 public class Character {
-
     private int id;
     private String name;
     private String status;
@@ -25,6 +24,5 @@ public class Character {
     private List<URL> episode;
     private String url;
     private String created;
-
 }
 

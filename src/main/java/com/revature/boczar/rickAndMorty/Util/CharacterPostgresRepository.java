@@ -9,8 +9,15 @@ import java.sql.*;
 @Slf4j
 public class CharacterPostgresRepository {
 
-
+    /**
+     * This method saves character to PSQL database placed in Docker container.
+     * @param character Method accepts object of Character class as an input.
+     *
+     */
     public void saveCharacterToDB(Character character) {
+        if (character == null){
+            log.error("Character object cannot be null");
+        }
         try(Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "password")) {
 
             String INSERT_INTO_CHARACTER = "insert into character(name, status, species, type, gender, origin, location, image, episode, url, created)  values (?, ? , ? , ? , ? , ? , ? ,? ,? ,? ,?);";
@@ -34,14 +41,16 @@ public class CharacterPostgresRepository {
             log.error("SQL exeption");
         }
     }
+
+    /**
+     * This method print all entries in 'character' table in PSQL database.
+     */
     public void printAllCharacters(){
 
         try(Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "password")){
             String GET_ALL_CHARACTERS = "select * from character";
             Statement statement = conn.createStatement();
-
             ResultSet resultSet = statement.executeQuery(GET_ALL_CHARACTERS);
-
             System.out.println(Table.read().db(resultSet).print());
 
         } catch (SQLException e){

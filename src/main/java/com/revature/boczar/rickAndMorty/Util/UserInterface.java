@@ -7,7 +7,12 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 public class UserInterface {
-
+    /**
+     * Method converts Json from String to Character object.
+     * @param objectMapper Method accepts objectMapper to perform reading.
+     * @param body Method also accept body, which is String in Json format.
+     * @return Object of Character class is returned.
+     */
     public Character getCharacterFromJson(ObjectMapper objectMapper, String body) {
         Character character = null;
         try {
