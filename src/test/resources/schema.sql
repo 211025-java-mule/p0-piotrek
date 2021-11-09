@@ -1,6 +1,6 @@
 create table if not exists character(
 id SERIAL PRIMARY KEY,
-name varchar(255),
+name varchar(255) unique,
 status varchar(255),
 species varchar(255),
 type varchar(255),
