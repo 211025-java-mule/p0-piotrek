@@ -19,25 +19,25 @@ public class CharacterService {
         try {
             url = new URL("https://rickandmortyapi.com/api/character/" + choice);
         } catch (MalformedURLException e) {
-            log.error("Not correct URL");
+            log.error(e.getMessage());
         }
         HttpURLConnection connection = null;
         try {
             connection = (HttpURLConnection) url.openConnection();
         } catch (IOException e) {
-            log.error("Connection was not made");
+            log.error(e.getMessage());
         }
         InputStream response = null;
         try {
             response = connection.getInputStream();
         } catch (IOException e) {
-            log.error("Response was not received");
+            log.error(e.getMessage());
         }
         String body = null;
         try {
             body = new String(response.readAllBytes());
         } catch (IOException e) {
-            log.error("Could not read response");
+            log.error(e.getMessage());
         }
         return body;
     }

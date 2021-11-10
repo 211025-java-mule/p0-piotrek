@@ -2,8 +2,7 @@
 
 <h3> Description </h3>
 
-Application allows user to pick any number from 1 to 826 and by that id searches in global API for information
-about characters from Rick and Morty. 
+Application shows detailed information about characters from Rick and Morty cartoon, based on global API.
 
 API URL:
 
@@ -11,8 +10,13 @@ API URL:
 
 
 <h3>Features</h3>
-- Shows information about favorite character from Rick and Morty. There are 826 to pick from!
-- Instantly adds it to Postgre database
+Application shows information about favorite character from Rick and Morty. There are 826 to pick from!
+Here are options how to look:
+- Search by id
+- Search by name
+- Get random character
+
+All the characters are instantly adds it to Postgre database
 
 <h3>Running</h3>
 Setup DB

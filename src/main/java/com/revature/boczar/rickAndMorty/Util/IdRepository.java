@@ -21,6 +21,10 @@ import java.util.stream.Collectors;
 @Slf4j
 public class IdRepository {
 
+    /**
+     * Method retrieves data from global API and converts it to HashMap where key is character id and value is his/her name
+     * @return HashMap of id and its names
+     */
     public Map<Integer, String> getMapOfNames() {
         Map<Integer, String> mapOfNames = new HashMap<>();
         for (int i = 1; i <= 42; i++) {
@@ -71,6 +75,12 @@ public class IdRepository {
         return mapOfNames;
     }
 
+    /**
+     * Method searches in MapOfNames by name given from user;
+     * @param name Parameter given by User; name that method will be searching for
+     * @param mapOfNames MapOfNames - map with all ids and names matched to them
+     * @return MapOfName is returned, but it is now filtered by name
+     */
     public Map<Integer, String> searchByName(String name, Map<Integer, String> mapOfNames) {
 
         return mapOfNames.entrySet()
@@ -78,17 +88,5 @@ public class IdRepository {
                 .filter(map -> map.getValue().contains(name.toLowerCase(Locale.ROOT)))
                 .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
     }
-
-//    public static void main(String[] args) {
-//        Map<Integer, String> mapOfNames = getMapOfNames();
-//
-//      // mapOfNames.forEach((k,v)-> System.out.println(k + " " + v));
-//
-//        Map<Integer, String> bird = searchByName("mort", mapOfNames);
-//
-//        bird.forEach((k,v)-> System.out.println(k + " " + v));
-//
-//
-//    }
 }
 

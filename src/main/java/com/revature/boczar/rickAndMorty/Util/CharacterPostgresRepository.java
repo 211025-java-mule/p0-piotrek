@@ -15,9 +15,6 @@ public class CharacterPostgresRepository {
      *
      */
     public void saveCharacterToDB(Character character) {
-        if (character == null){
-            log.error("Character object cannot be null");
-        }
         try(Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "password")) {
 
             String INSERT_INTO_CHARACTER = "insert into character(name, status, species, type, gender, origin, location, image, episode, url, created)  values (?, ? , ? , ? , ? , ? , ? ,? ,? ,? ,?);";
@@ -37,8 +34,6 @@ public class CharacterPostgresRepository {
             ps.executeUpdate();
 
         } catch (SQLException e) {
-            System.err.println(e.getMessage()); //?
-            //System.out.println(e.getMessage());
             log.error(e.getMessage());
         }
     }
@@ -55,7 +50,7 @@ public class CharacterPostgresRepository {
             System.out.println(Table.read().db(resultSet).print());
 
         } catch (SQLException e){
-            log.error("SQL exception during printing all character from DB");
+            log.error(e.getMessage());
         }
     }
 }
