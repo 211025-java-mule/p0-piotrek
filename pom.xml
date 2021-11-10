@@ -10,7 +10,6 @@
         <maven.compiler.target>16</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <exec.mainClass>com.revature.boczar.rickAndMorty.RickAndMorty</exec.mainClass>
-<!--        <exec.args>10</exec.args>-->
     </properties>
 
     <dependencies>
