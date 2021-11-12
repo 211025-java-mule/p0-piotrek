@@ -1,11 +1,12 @@
 package com.revature.boczar.rickAndMorty;
 
+import com.revature.boczar.rickAndMorty.Util.ApplicationContext;
+import com.revature.boczar.rickAndMorty.Util.CharacterService;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
@@ -13,6 +14,7 @@ import java.net.URL;
 public class RickAndMortyAPITest {
     static URL url;
     static HttpURLConnection connection;
+    static ApplicationContext applicationContext;
 
     @Before
     public void setUpConnection() {
@@ -22,17 +24,16 @@ public class RickAndMortyAPITest {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        applicationContext = new ApplicationContext();
     }
-
     @Test
     public void testConnectionToAPI() {
         Assert.assertNotEquals(null, connection);
     }
-
     @Test
-    public void testResponseFromAPI() throws IOException {
-        InputStream response = connection.getInputStream();
-        String body = new String(response.readAllBytes());
-        Assert.assertNotEquals(null, body);
+    public void testGetBody(){
+        CharacterService characterService = applicationContext.getCharacterService();
+        String body = characterService.getBody(1);
+        Assert.assertNotEquals(null , body);
     }
 }

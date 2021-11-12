@@ -2,11 +2,10 @@ package com.revature.boczar.rickAndMorty;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.revature.boczar.rickAndMorty.Util.*;
-import lombok.extern.slf4j.Slf4j;
 
 import java.util.Scanner;
 
-@Slf4j
+
 public class RickAndMorty {
 
 

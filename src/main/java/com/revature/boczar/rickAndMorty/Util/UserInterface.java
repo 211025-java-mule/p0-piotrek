@@ -14,8 +14,9 @@ import java.util.stream.IntStream;
 public class UserInterface {
     /**
      * Method converts Json from String to Character object.
+     *
      * @param objectMapper Method accepts objectMapper to perform reading.
-     * @param body Method also accept body, which is String in Json format.
+     * @param body         Method also accept body, which is String in Json format.
      * @return Object of Character class is returned.
      */
     public Character getCharacterFromJson(ObjectMapper objectMapper, String body) {
@@ -30,14 +31,15 @@ public class UserInterface {
 
     /**
      * Method searches for character by ID given by User. Then this character is shown in console and added to database
-     * @param scanner Object of Scanner. It is choice of option made by user
-     * @param characterService Object of CharacterService in order to be able to run getBody();
-     * @param userInterface Object of UserInterface in order to be able to run getCharacterFromJson();
-     * @param objectMapper Object of ObjectMapper in order to be able to run getCharacterFromJson();
+     *
+     * @param scanner                     Object of Scanner. It is choice of option made by user
+     * @param characterService            Object of CharacterService in order to be able to run getBody();
+     * @param userInterface               Object of UserInterface in order to be able to run getCharacterFromJson();
+     * @param objectMapper                Object of ObjectMapper in order to be able to run getCharacterFromJson();
      * @param characterPostgresRepository Object of CharacterPostgresRepository in order to be able to run saveCharacterToDB(); and printAllCharacters();
      */
 
-    public void searchById(Scanner scanner , CharacterService characterService, UserInterface userInterface, ObjectMapper objectMapper, CharacterPostgresRepository characterPostgresRepository){
+    public void searchById(Scanner scanner, CharacterService characterService, UserInterface userInterface, ObjectMapper objectMapper, CharacterPostgresRepository characterPostgresRepository) {
         System.out.println("Please enter number from 1 to 826");
         if (!(scanner.hasNextInt())) {
             System.out.println("Please input an integer");
@@ -55,14 +57,15 @@ public class UserInterface {
     /**
      * Method searches in mapOfNames for name that is given by User. Then it shows all of ids and names that matched his/her
      * searching. Next method ask to specify id of character that user meant. Character is finally added to databased and shown in console
-     * @param idRepository Object of IdRepository in order to be able to run getMapOfNames();
-     * @param characterService Object of CharacterService in order to be able to run getBody();
-     * @param userInterface Object of UserInterface in order to be able to run getCharacterFromJson();
+     *
+     * @param idRepository                Object of IdRepository in order to be able to run getMapOfNames();
+     * @param characterService            Object of CharacterService in order to be able to run getBody();
+     * @param userInterface               Object of UserInterface in order to be able to run getCharacterFromJson();
      * @param characterPostgresRepository Object of CharacterPostgresRepository in order to be able to run saveCharacterToDB(); and printAllCharacters();
-     * @param objectMapper Object of ObjectMapper in order to be able to run getCharacterFromJson();
+     * @param objectMapper                Object of ObjectMapper in order to be able to run getCharacterFromJson();
      */
 
-    public void searchByName(IdRepository idRepository, CharacterService characterService, UserInterface userInterface , CharacterPostgresRepository characterPostgresRepository, ObjectMapper objectMapper){
+    public void searchByName(IdRepository idRepository, CharacterService characterService, UserInterface userInterface, CharacterPostgresRepository characterPostgresRepository, ObjectMapper objectMapper) {
         System.out.println("Please enter name of a character");
         Scanner nameScanner = new Scanner(System.in);
         if (!(nameScanner.hasNext())) {
@@ -97,12 +100,13 @@ public class UserInterface {
 
     /**
      * Method generate random number from 1 to 826, then by this number search in API to retrieve information about character. Then it adds this data to database
-     * @param characterService Object of CharacterService in order to be able to run getBody();
-     * @param userInterface Object of UserInterface in order to be able to run getCharacterFromJson();
-     * @param objectMapper Object of ObjectMapper in order to be able to run getCharacterFromJson();
+     *
+     * @param characterService            Object of CharacterService in order to be able to run getBody();
+     * @param userInterface               Object of UserInterface in order to be able to run getCharacterFromJson();
+     * @param objectMapper                Object of ObjectMapper in order to be able to run getCharacterFromJson();
      * @param characterPostgresRepository Object of CharacterPostgresRepository in order to be able to run saveCharacterToDB(); and printAllCharacters();
      */
-    public void getRandomCharacter(CharacterService characterService , UserInterface userInterface, ObjectMapper objectMapper , CharacterPostgresRepository characterPostgresRepository){
+    public void getRandomCharacter(CharacterService characterService, UserInterface userInterface, ObjectMapper objectMapper, CharacterPostgresRepository characterPostgresRepository) {
         Random random = new Random();
         IntStream ints = random.ints(1, 826);
         int randomInt = ints.findFirst().getAsInt();
@@ -115,7 +119,7 @@ public class UserInterface {
     /**
      * Method which ends application
      */
-    public void exitApplication(){
+    public void exitApplication() {
         System.out.println("Bye bye");
         System.exit(0);
     }

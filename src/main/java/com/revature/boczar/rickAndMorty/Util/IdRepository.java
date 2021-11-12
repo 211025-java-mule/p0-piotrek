@@ -23,6 +23,7 @@ public class IdRepository {
 
     /**
      * Method retrieves data from global API and converts it to HashMap where key is character id and value is his/her name
+     *
      * @return HashMap of id and its names
      */
     public Map<Integer, String> getMapOfNames() {
@@ -77,7 +78,8 @@ public class IdRepository {
 
     /**
      * Method searches in MapOfNames by name given from user;
-     * @param name Parameter given by User; name that method will be searching for
+     *
+     * @param name       Parameter given by User; name that method will be searching for
      * @param mapOfNames MapOfNames - map with all ids and names matched to them
      * @return MapOfName is returned, but it is now filtered by name
      */
