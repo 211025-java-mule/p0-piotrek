@@ -92,7 +92,7 @@ public class IdRepository {
 
         return mapOfNames.entrySet()
                 .stream()
-                .filter(map -> map.getValue().contains(name.toLowerCase(Locale.ROOT)))
+                .filter(map -> map.getValue().contains(name.toLowerCase()))
                 .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
     }
 }

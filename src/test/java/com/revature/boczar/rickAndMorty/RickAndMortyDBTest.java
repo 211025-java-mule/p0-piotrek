@@ -1,7 +1,6 @@
 package com.revature.boczar.rickAndMorty;
 
 import com.revature.boczar.rickAndMorty.Util.ApplicationContext;
-import com.revature.boczar.rickAndMorty.Util.UserInterface;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -11,7 +10,7 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.sql.*;
-import java.util.Scanner;
+
 
 import static org.junit.Assert.assertEquals;
 
@@ -31,7 +30,7 @@ public class RickAndMortyDBTest {
     }
 
     @Test
-    public void checkConnection() throws SQLException {
+    public void checkConnection() {
         Assert.assertNotEquals(connection, null);
     }
 
@@ -69,17 +68,5 @@ public class RickAndMortyDBTest {
         InputStream response = connection.getInputStream();
         String body = new String(response.readAllBytes());
         Assert.assertNotEquals(null, body);
-    }
-
-    @Test
-    public void searchByIdTest() throws SQLException {
-        UserInterface userInterface = applicationContext.getUserInterface();
-        Scanner scanner = new Scanner(String.valueOf(Integer.valueOf(10)));
-        userInterface.searchById(scanner, applicationContext.getCharacterService(), applicationContext.getUserInterface(), applicationContext.getObjectMapper(), applicationContext.getCharacterPostgresRepository());
-        Statement statement = connection.createStatement();
-        ResultSet resultSet = statement.executeQuery("select * from character;");
-        while (resultSet.next()) {
-            assertEquals("Alan Rails", resultSet.getString("name"));
-        }
     }
 }
