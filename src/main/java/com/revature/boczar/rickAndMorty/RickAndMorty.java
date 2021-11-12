@@ -19,7 +19,7 @@ public class RickAndMorty {
 
         while (true) {
             System.out.println("""
-                    Welcome to Rick & Morty App where you can find all information about favorite character! Please select your option:
+                    Welcome to Rick & Morty App where you can find all information about your favorite character! Please select your option:
                      1 - Search by ID
                      2 - Search by name
                      3 - Select random character

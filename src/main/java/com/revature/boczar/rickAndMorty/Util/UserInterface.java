@@ -24,6 +24,7 @@ public class UserInterface {
         try {
             character = objectMapper.readValue(body, Character.class);
         } catch (JsonProcessingException e) {
+            System.err.println(e.getMessage());
             log.error("Could not parse response");
         }
         return character;

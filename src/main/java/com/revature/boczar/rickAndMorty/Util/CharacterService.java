@@ -21,24 +21,28 @@ public class CharacterService {
         try {
             url = new URL("https://rickandmortyapi.com/api/character/" + choice);
         } catch (MalformedURLException e) {
+            System.err.println(e.getMessage());
             log.error(e.getMessage());
         }
         HttpURLConnection connection = null;
         try {
             connection = (HttpURLConnection) url.openConnection();
         } catch (IOException e) {
+            System.err.println(e.getMessage());
             log.error(e.getMessage());
         }
         InputStream response = null;
         try {
             response = connection.getInputStream();
         } catch (IOException e) {
+            System.err.println(e.getMessage());
             log.error(e.getMessage());
         }
         String body = null;
         try {
             body = new String(response.readAllBytes());
         } catch (IOException e) {
+            System.err.println(e.getMessage());
             log.error(e.getMessage());
         }
         return body;

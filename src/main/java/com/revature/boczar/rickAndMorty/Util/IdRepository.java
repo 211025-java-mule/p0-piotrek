@@ -39,12 +39,14 @@ public class IdRepository {
             try {
                 connection = (HttpURLConnection) url.openConnection();
             } catch (IOException e) {
+                System.err.println(e.getMessage());
                 log.error(e.getMessage());
             }
             InputStream inputStream = null;
             try {
                 inputStream = connection.getInputStream();
             } catch (IOException e) {
+                System.err.println(e.getMessage());
                 log.error(e.getMessage());
             }
             ObjectMapper objectMapper = new ObjectMapper();
@@ -52,12 +54,14 @@ public class IdRepository {
             try {
                 json = new String(inputStream.readAllBytes());
             } catch (IOException e) {
+                System.err.println(e.getMessage());
                 log.error(e.getMessage());
             }
             JsonNode rootNode = null;
             try {
                 rootNode = objectMapper.readTree(json);
             } catch (JsonProcessingException e) {
+                System.err.println(e.getMessage());
                 log.error(e.getMessage());
             }
             JsonNode node = rootNode.path("results");
@@ -67,10 +71,11 @@ public class IdRepository {
                 list = objectMapper.readValue(listOfCharacters, new TypeReference<>() {
                 });
             } catch (JsonProcessingException e) {
+                System.err.println(e.getMessage());
                 log.error(e.getMessage());
             }
             for (Character character : list) {
-                mapOfNames.put(character.getId(), character.getName().toLowerCase(Locale.ROOT));
+                mapOfNames.put(character.getId(), character.getName().toLowerCase());
             }
         }
         return mapOfNames;
