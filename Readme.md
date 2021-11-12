@@ -12,6 +12,7 @@ API URL:
 <h3>Features</h3>
 Application shows information about favorite character from Rick and Morty. There are 826 to pick from!
 Here are options how to look:
+
  - Search by id
  - Search by name
  - Get random character
