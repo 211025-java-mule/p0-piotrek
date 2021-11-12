@@ -16,7 +16,7 @@ Here are options how to look:
 - Search by name
 - Get random character
 
-All the characters are instantly adds it to Postgre database
+All the characters are instantly added to Postgre database
 
 <h3>Running</h3>
 Setup DB
